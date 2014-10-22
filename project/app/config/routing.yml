@@ -1,0 +1,22 @@
+gobelins_book:
+    resource: "@GobelinsBookBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+gobelins_api_news:
+    resource: "@GobelinsApiBundle/Controller/NewsController.php"
+    type:     rest
+    prefix:   /api/
+
+gobelins_book_news:
+    resource: "@GobelinsApiBundle/Controller/BookController.php"
+    type:     rest
+    prefix:   /api/
+
+gobelins_news:
+    resource: "@GobelinsNewsBundle/Controller/"
+    type:     annotation
+    prefix:   /news
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

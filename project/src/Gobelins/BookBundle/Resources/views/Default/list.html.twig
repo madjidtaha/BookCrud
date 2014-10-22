@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% block page_title 'book' %}
+
+{% block body %}
+
+    {% if app.session.flashBag.has('success') %}
+        <ul>
+            {% for message in app.session.flashBag.get('success') %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif  %}
+    <a href="/category"><button>Liste des genre de livre</button></a>
+    <a href="/create"><button>Ajouter un livre</button></a>
+    {% for book in books %}
+        <fieldset>
+            <legend>{{ book.name }}</legend>
+            <p>{{ book.description }}</p>
+            <p>Genre : {{ book.category.name}}</p>
+            <p>Par {{ book.author }}</p>
+            <p>A seulement {{ book.price }}</p>
+            <a href="/update/{{ book.id }}">
+                <button>Modifier</button>
+            </a>
+            <a href="/delete/{{ book.id }}">
+                <button>Supprimer</button>
+            </a>
+        </fieldset>
+    {% else %}
+        {# In case there is no news in database #}
+        <h3>Aucun livre n'est encore disponible</h3>
+    {% endfor %}
+
+{% endblock body %}

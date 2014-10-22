@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block page_title 'book edition' %}
+
+{% block body %}
+
+    <form method="POST">
+        <div>
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name, { 'attr' : { 'placeholder' : 'Nom du livre' } }) }}
+            {{ form_errors(form.name) }}
+
+        </div>
+
+        {{ form_row(form.description) }}
+
+        {{ form_rest(form) }}
+
+
+
+        <input type="submit" />
+
+    </form>
+
+{% endblock body %}

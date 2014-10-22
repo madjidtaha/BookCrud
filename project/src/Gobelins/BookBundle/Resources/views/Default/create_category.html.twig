@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block page_title 'category' %}
+
+{% block body %}
+
+    <form method="POST">
+
+        {{ form_widget(form) }}
+
+        <input type="submit" />
+
+    </form>
+
+{% endblock body %}

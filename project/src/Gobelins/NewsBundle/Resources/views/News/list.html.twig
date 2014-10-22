@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block page_title 'news' %}
+
+{% block body %}
+
+    {% if app.session.flashBag.has('success') %}
+        <ul>
+        {% for message in app.session.flashBag.get('success') %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif  %}
+    {% for aNews in news %}
+        <fieldset>
+            <legend>{{ aNews.title }}</legend>
+            <p>{{ aNews.content }}</p>
+            <p>{{ aNews.author }}</p>
+            <a href="/news/update/{{ aNews.id }}">
+                <button>Modifier</button>
+            </a>
+        </fieldset>
+    {% else %}
+        {# In case there is no news in database #}
+        <h3>T'as pas de news</h3>
+    {% endfor %}
+
+{% endblock body %}

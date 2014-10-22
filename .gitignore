@@ -1,0 +1,4 @@
+.DS_Store
+project/vendor
+project/app/cache
+project/app/logs

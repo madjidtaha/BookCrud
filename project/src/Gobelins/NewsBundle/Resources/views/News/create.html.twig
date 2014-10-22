@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block page_title 'post' %}
+
+{% block body %}
+
+    <form method="POST">
+        <div>
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title, { 'attr' : { 'placeholder' : 'Mon titre' } }) }}
+            {{ form_errors(form.title) }}
+
+        </div>
+
+        {{ form_row(form.content) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" />
+
+    </form>
+
+{% endblock body %}
